@@ -7,11 +7,16 @@ function editNav() {
   }
 }
 
+
 // DOM Elements
+const burgerMenu = document.getElementById("burgerMenu");
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 
+burgerMenu.addEventListener("click", e => {
+  editNav();
+});
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
