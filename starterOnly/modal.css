@@ -10,15 +10,13 @@
 }
 /* Landing Page */
 
-body {
+body,
+html {
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
-  max-width: 1300px;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 
 p {
@@ -27,27 +25,36 @@ p {
 }
 
 img {
+  background-color: #fff;
   padding-right: 1rem;
 }
 
 .topnav {
-  overflow: hidden;
+  display: flex;
   margin: 3.5%;
+  width: 95%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* column-gap: 50px; */
 }
 .header-logo {
-  float: left;
+  display: flex;
   padding-bottom: 25px;
+  width: 25%;
 }
 .main-navbar {
-  float: right;
+  display: flex;
+  height: 100%;
+  margin-right: -20px;
+  justify-content: end;
 }
 .topnav a {
-  float: left;
-  display: block;
+  display: flex;
   color: #000000;
   text-align: center;
   padding: 12px 12px;
   margin: 5px;
+  /* height: 100%; */
   text-decoration: none;
   font-size: 20px;
   font-family: Roboto, sans-serif;
@@ -74,18 +81,17 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .topnav a {
     color: #f1f1f1;
     display: none;
   }
   .topnav a.icon {
-    /* float: right; */
     display: block;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .topnav.responsive {
     position: relative;
     display: flex;
@@ -102,36 +108,23 @@ img {
   }
 
   .topnav.responsive .main-navbar {
-    /* position: absolute; */
     animation: menuopen 0.5s ease-in-out;
     display: flex;
     flex-direction: column;
     margin-top: 40px;
-    right: 5%;
     background: #232323;
     border-radius: 15px;
     z-index: 5;
+    margin-right: 2.5%;
   }
   .topnav.responsive .icon {
     position: absolute;
-    right: 0;
     top: 0;
   }
   .topnav.responsive a {
     float: none;
     display: block;
     text-align: left;
-  }
-}
-
-@media screen and (max-width: 540px) {
-  .topnav a {
-    display: none;
-  }
-  .topnav a.icon {
-    float: right;
-    display: block;
-    /* margin-top: -15px; */
   }
 }
 
@@ -192,7 +185,7 @@ main {
 .bground {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   left: 0;
   top: 0;
   height: 100%;
@@ -437,22 +430,24 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
+  background: #000;
   border-radius: 10px;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  overflow: hidden;
+  display: flex;
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
 }
 .hero-content {
-  padding: 51px 67px;
   grid-column: span 4;
   background: #232323;
   color: #fff;
   position: relative;
   text-align: left;
+  border-radius: 10px;
   min-width: 424px;
+}
+.wrap-content {
+  width: 100%;
+  margin: 51px 67px;
 }
 .hero-content::after {
   content: "";
@@ -468,12 +463,12 @@ input[data-error]::after {
   z-index: 1;
 }
 .hero-headline {
-  font-size: 6rem;
+  font-size: 8vmax;
   font-weight: normal;
   white-space: nowrap;
 }
 .hero-text {
-  width: 146%;
+  width: 80%;
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
@@ -487,11 +482,16 @@ input[data-error]::after {
   margin-top: 59px;
 }
 .hero-img {
+  position: relative;
+  width: 100%;
   grid-column: span 8;
 }
 .hero-img img {
+  position: absolute;
+  border-radius: 0 10px 10px 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
   display: block;
   padding: 0;
 }
@@ -512,10 +512,13 @@ footer {
 }
 @media screen and (max-width: 800px) {
   .hero-section {
+    background-color: #fff;
     display: block;
     box-shadow: unset;
   }
   .hero-content {
+    max-width: 100%;
+    width: 100%;
     background: #fff;
     color: #000;
     padding: 20px;
@@ -526,15 +529,22 @@ footer {
   .hero-content .btn-signup {
     display: none;
   }
+  .wrap-content {
+    width: 100%;
+    margin: 0;
+  }
   .hero-headline {
-    font-size: 4.5rem;
+    margin: 0 -18px;
     white-space: normal;
   }
   .hero-text {
+    margin-left: -18px;
+    margin-right: -18px;
     width: unset;
     font-size: 1.5rem;
   }
   .hero-img img {
+    position: relative;
     border-radius: 10px;
     margin-top: 40px;
   }
@@ -546,6 +556,23 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .wrap-content {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-headline {
+    width: 100%;
+    font-size: 3rem;
+  }
+  .hero-text {
+    width: 100%;
+    font-size: 1.2rem;
   }
 }
 
