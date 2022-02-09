@@ -218,8 +218,16 @@ label {
   font-size: 17px;
   font-weight: normal;
   display: inline-block;
-  margin-bottom: 11px;
+  margin: 11px 0;
 }
+
+.formData.success input {
+  border: 3px solid #2ecc71;
+}
+.formData.error input {
+  border: 3px solid #e54858;
+}
+
 input {
   padding: 8px;
   border: 0.8px solid #ccc;
@@ -233,6 +241,28 @@ input {
   font-size: 20px;
   height: 48px;
 }
+
+.formData small {
+  display: none;
+}
+
+.text-control.error {
+  border: 3px solid #e54858;
+}
+
+.formData .error-msg {
+  display: block;
+  font-size: 0.6em;
+  font-weight: normal;
+  color: #e54858;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+/* .formData small.error-msg {
+  display: block;
+} */
+
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
@@ -242,7 +272,7 @@ input {
   margin-bottom: 7px;
   text-align: right;
   line-height: 0.3;
-  opacity: 0;
+  opacity: 1;
   transition: 0.3s;
 }
 .formData[data-error-visible="true"]::after {
