@@ -1,6 +1,6 @@
 # Projet GameOn
 
-[Tester le projet](./starterOnly/index.html)
+[Tester le projet](./index.html)
 
 1. Identité : GameOn est une PME, spécialisée dans les conférences et les concours de jeux videos.
 
