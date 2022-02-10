@@ -1,5 +1,7 @@
 # Projet GameOn
 
+[Tester le projet](./starterOnly/index.html)
+
 1. Identité : GameOn est une PME, spécialisée dans les conférences et les concours de jeux videos.
 
 2. Objectifs : Ajouter le code JavaScript manquant pour que le formulaire d'inscription soit pleinement fonctionnel.
