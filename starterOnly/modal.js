@@ -1,7 +1,6 @@
-const MIN_LENGTH = 2;
+const MIN_LENGTH_CHAR = 2; // Minimum of characters allowed
 
 /* ========================== Dom elements ========================== */
-
 // Navigation menu //
 const topnav = document.querySelector(".topnav");
 const burgerMenu = document.getElementById("burgerMenu");
@@ -75,7 +74,7 @@ function checkInputs() {
 
   // check length of characters & add msg err
   function errorCheckLength(inputName, id) {
-    if (inputName.value.trim().length < MIN_LENGTH) {
+    if (inputName.value.trim().length < MIN_LENGTH_CHAR) {
       id.classList.add('error-msg')
       inputName.classList.add('error')
       return false
@@ -105,6 +104,7 @@ function checkInputs() {
   }
   checkEmail();
 
+  // date birthday validation
   function checkDate() {
     if (!birthDate.value) {
       errorBirthDate.classList.add('error-msg')
