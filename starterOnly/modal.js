@@ -24,6 +24,7 @@ const birthDate = document.querySelector("#birthdate");
 const quantity = document.querySelector("#quantity");
 const radioButtons = document.querySelectorAll(".checkbox-input[type=radio]");
 const TermsOfUse = document.querySelector("#checkbox1");
+const newsLetter = document.querySelector("#checkbox2");
 
 // errors inputs
 const errForm = document.querySelector("#err-form");
@@ -64,6 +65,16 @@ function checkInputs() {
     form.style.display = "none"
     modalThanks.style.display = "block"
     modalThanks.classList.add('modal-thanks')
+
+    // capture of data of form and show it in the console.
+    console.log("Prénom: ", firstName.value);
+    console.log("Nom: ", lastName.value);
+    console.log("email: ", email.value);
+    console.log("Date de naissance: ", birthDate.value);
+    console.log("Nombre tournois: ", quantity.value);
+    console.log("Ville: ", true);
+    console.log("Conditions d'utilisations: ", TermsOfUse.checked);
+    console.log("Newsletter: ", newsLetter.checked);
   }
   else {
     // global error msg display
@@ -142,7 +153,7 @@ function checkInputs() {
         errorRadio.classList.add('error-msg')
       }
       else if (radio.checked === true) {
-        errorRadio.classList.remove('error-msg')
+        errorRadio.classList.remove('error-msg');
         return true;
       }
     }
@@ -192,6 +203,5 @@ redBtnClose.addEventListener("click", hideModal);
 // launch the check error func, onchange event
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-
   checkInputs()
 });
