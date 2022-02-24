@@ -51,6 +51,8 @@ function hideModal() {
 // global error msg hidden display
 errForm.style.display = "none";
 
+let birthDateIsValid = false;
+
 function checkInputs() {
   // if the verification of all inputs is true, display modal thanks
   if (
@@ -117,7 +119,6 @@ function checkInputs() {
 
   // date birthday validation
 
-  let birthDateIsValid = false;
   function validateDate() {
     let date = new Date();
     function dateFormated(chain) {
@@ -140,7 +141,6 @@ function checkInputs() {
     }
 
   }
-
 
   function checkDate() {
     validateDate();
