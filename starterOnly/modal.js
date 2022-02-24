@@ -116,13 +116,41 @@ function checkInputs() {
   checkEmail();
 
   // date birthday validation
+
+  let birthDateIsValid = false;
+  function validateDate() {
+    let date = new Date();
+    function dateFormated(chain) {
+      let newDate = new Date(chain).toLocaleDateString("fr-FR", {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric"
+      })
+      return newDate;
+    };
+    let today = dateFormated(date);
+    console.log(today);
+
+
+    let diffAge = (date - new Date(birthDate.value)) / (1000 * 60 * 60 * 24 * 365.25);
+    console.log(diffAge);
+
+    if (diffAge >= 5 && diffAge < 80) {
+      birthDateIsValid = true;
+    }
+
+  }
+
+
   function checkDate() {
-    if (!birthDate.value) {
+    validateDate();
+    if (birthDateIsValid === false) {
       errorBirthDate.classList.add('error-msg')
       birthDate.classList.add('error')
       return false;
     }
     else {
+
       errorBirthDate.classList.remove('error-msg')
       birthDate.classList.remove('error')
       return true;
